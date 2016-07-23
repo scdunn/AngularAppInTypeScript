@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My Angular Application</title>
+	<meta charset="utf-8" />
+
+</head>
+<body ng-app="myApp" ng-controller="MyController as mc">
+    <div>
+        <!-- controller properties -->
+        <h1>{{mc.heading}}</h1>
+        <p>{{mc.text}}</p>
+
+        <!-- calling service values -->
+        <h2>List of names from a service</h2>
+        <div ng-repeat="name in mc.NamesFromService()">
+            {{name}}
+        </div>
+
+        <!-- custom directives -->
+        <my-directive heading="List of colors from service" colors="mc.GetColors()"></my-directive>
+    </div>
+
+    <!-- scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+    <script src="services/myservice.js"></script>
+    <script src="directives/mydirective.js"></script>
+    <script src="controllers/mycontroller.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
